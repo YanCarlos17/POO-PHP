@@ -1,27 +1,43 @@
 <?php
 
-    class carro{
-    public $marca;
-    public $modelo;
-    public $color;
+    class telefono{
+        
+        public $marca;
+        public $modelo;
+        protected $alambrico=true;
+        protected $comunicacion;
 
-        public function __construct($marca,$modelo,$color){
+        public function __construct($marca,$modelo,$alambrico,$cominicacion){
             $this->marca=$marca;
             $this->modelo=$modelo;
-            $this->color=$color;
+            $this->comunicacion=($this->alambrico)?'Alambríco':'Inalambríco';
         }
 
-        public function frase(){
-            return $this->marca.' '.$this->modelo.' '.$this->color;
+        public function llamar(){
+            echo '<p>Riiiiing - - Riiiiing</p>';
+
+        }
+        public function info(){
+            echo    
+            '<ul>
+                <li>Marca<b>'. $this->marca .'</b></li>
+                <li>Modelo<b>'. $this->modelo .'</b></li>
+                <li>Comunicación<b>'. $this->comunicacion .'</b></li>
+            </ul>';
         }
     }
 
-    $carro1= new carro('Chevrolet','95','Azul');
-    $carro2= new carro('Mazda','98','Gris');
-    $carro3= new carro('Toyota','00','Rojo');
+    class celular extends telefono{
 
-    echo   "Atributos Chevette:{$carro1->frase()} <br>
-            Atributos Mazda:{$carro2->frase()} <br>
-            Atributos Toyota:{$carro3->frase()}";
+    }
+
+    class smathphone extends celular{
+
+    }
+
+    $house_phone = new telefono('Panasonic','TXT-365S','Alambríco') ;
+
+    echo '<h4>The phone evolution is</h4>';
+    echo '<h5>Phone:'.$house_phone->info().'</h5>';
 
 ?>
