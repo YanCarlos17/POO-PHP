@@ -1,24 +1,27 @@
 <?php
 
-class person{
-    var $firstName;
-    var $lastName;
+    class carro{
+    public $marca;
+    public $modelo;
+    public $color;
 
-    function __construct($firstName, $lastName)
-    {
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
+        public function __construct($marca,$modelo,$color){
+            $this->marca=$marca;
+            $this->modelo=$modelo;
+            $this->color=$color;
+        }
+
+        public function frase(){
+            return $this->marca.' '.$this->modelo.' '.$this->color;
+        }
     }
 
-    function fullName(){
-        return $this->firstName.' '.$this->lastName;
-    }
-}
+    $carro1= new carro('Chevrolet','95','Azul');
+    $carro2= new carro('Mazda','98','Gris');
+    $carro3= new carro('Toyota','00','Rojo');
 
-$person1 = new person('Juan','Salazar');
-$person2 = new person('Cristian','Ramirez');
-
-echo "{$person1->fullName()} es amigo de {$person2->fullName()}";
-
+    echo   "Atributos Chevette:{$carro1->frase()} <br>
+            Atributos Mazda:{$carro2->frase()} <br>
+            Atributos Toyota:{$carro3->frase()}";
 
 ?>
